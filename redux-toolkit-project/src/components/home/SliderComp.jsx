@@ -4,7 +4,6 @@ import img1 from "../../assets/img/nike-2.png";
 import img2 from "../../assets/img/nike-1.png";
 const SliderComp = () => {
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     autoplay:true,
@@ -14,8 +13,8 @@ const SliderComp = () => {
   return (
     <div>
       <Slider {...settings}>
-        <div className="!flex items-center bg-gray-100 px-3  ">
-          <div>
+        <div className="!flex items-center justify-center bg-gray-100 px-3 h-[525px]">
+          <div className="w-2/5 m-auto p-auto">
             <div className="text-5xl font-bold my-8">Cool Popular Shoes</div>
             <div className="text-lg my-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
@@ -26,15 +25,15 @@ const SliderComp = () => {
               reiciendis animi quaerat? Ratione minima repellat provident
               corrupti pariatur excepturi odio! Quis?
             </div>
-            <button className="flex items-center justify-center cursor-pointer bg-gray-200 border-none rounded-full text-2xl  w-[200px] h-16 my-10">
+            <button className="flex items-center justify-center cursor-pointer bg-gray-200 border-none rounded-full text-2xl  w-[200px] h-16 my-10 text-gray-500">
               Look
             </button>
           </div>
 
-          <img src={img1} alt="img1" />
+          <img className="w-[500px]" src={img1} alt="img1" />
         </div>
-        <div className="!flex items-center bg-gray-100 px-3 h-[500px]">
-          <div>
+        <div className="!flex items-center justify-center bg-gray-100 px-3 h-[525px] ">
+          <div className="w-2/5 m-auto p-auto">
             <div className="text-5xl font-bold my-8">Cool Popular Shoes</div>
             <div className="text-lg my-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
@@ -45,12 +44,12 @@ const SliderComp = () => {
               reiciendis animi quaerat? Ratione minima repellat provident
               corrupti pariatur excepturi odio! Quis?
             </div>
-            <button className="flex items-center justify-center cursor-pointer bg-gray-200 border-none rounded-full text-2xl  w-[200px] h-16 my-10">
+            <button className="flex items-center justify-center cursor-pointer bg-gray-200 border-none rounded-full text-2xl  w-[200px] h-16 my-10 text-gray-500 ">
               Look
             </button>
           </div>
 
-          <img src={img2} alt="img2" />
+          <img className="w-[500px]" src={img2} alt="img2" />
         </div>
       </Slider>
     </div>
