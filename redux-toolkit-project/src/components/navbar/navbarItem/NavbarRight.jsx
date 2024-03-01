@@ -4,12 +4,16 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
 const NavbarRight = () => {
   return (
-    <div className="flex items-center gap-8 m-auto p-auto ">
+    <div className="flex justify-between items-center gap-4 md:max-sm gap-2 ">
       <div className="flex items-center border p-2 rounded-full bg-gray-200">
-        <input className="bg-gray-200 outline-none md:h-full md:w-full md:max-sm w-16 w-0" type="text" placeholder="Search" />
-        <BiSearch size={28}/>
+        <input
+          className="bg-gray-200 outline-none md:h-full md:w-32 md:max-sm w-16"
+          type="text"
+          placeholder="Search"
+        />
+        <BiSearch size={28} />
       </div>
-      <AiOutlineHeart size={28} />
+      <AiOutlineHeart  size={28} />
       <div className="relative">
         <div className="absolute text-center -top-3 -right-3 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
           3
