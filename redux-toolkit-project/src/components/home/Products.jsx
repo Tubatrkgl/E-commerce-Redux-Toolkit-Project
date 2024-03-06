@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../redux/ProductSlice";
+import { getProducts, getCategoryProducts } from "../../redux/ProductSlice";
 import Loading from "../Loading";
 import Product from "./Product";
 import ReactPaginate from "react-paginate";
 
-const Products = () => {
+const Products = ({ category, sort }) => {
   const dispatch = useDispatch();
   const { products, productsStatus } = useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    if (category) {
+      dispatch(getCategoryProducts(category));
+    } else {
+      dispatch(getProducts());
+    }
+  }, [dispatch, category]);
 
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
@@ -28,7 +32,7 @@ const Products = () => {
     );
     setItemOffset(newOffset);
   };
-
+  console.log(sort, "sort");
   return (
     <div>
       {productsStatus === "LOADING" ? (
@@ -36,9 +40,13 @@ const Products = () => {
       ) : (
         <>
           <div className="flex flex-wrap">
-            {currentItems?.map((product) => (
-              <Product key={product.id} product={product} />
-            ))}
+            {currentItems
+              ?.sort((a, b) =>
+                sort === "inc" ? a.price - b.price : sort === "dec" ? b.price - a.price : ""
+              )
+              .map((product) => (
+                <Product key={product.id} product={product} />
+              ))}
           </div>
           <ReactPaginate
             className="paginate"
